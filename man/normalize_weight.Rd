@@ -6,7 +6,19 @@
 \usage{
 normalize_weight(logweights)
 }
+\arguments{
+\item{logweights}{is a vector of n real values}
+}
+\value{
+a vector of n non-negative values summing to one
+}
 \description{
 Takes a vector of real values, and return the vector of normalized exponentiated values,
-as well as average of the exponentiated but unnormalized values.
+as well as average of the exponentiated unnormalized values.
+}
+\examples{
+N <- 1000
+logweights <- rnorm(N)
+normalize_weight_results <- normalize_weight(logweights)
+normalized_weights <- normalize_weight_results$nw
 }

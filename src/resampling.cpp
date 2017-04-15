@@ -59,5 +59,5 @@ IntegerVector multinomial_resampling_(int nsamples, const NumericVector & weight
     }
   }
   std::random_shuffle(ancestors.begin(), ancestors.end(), randWrapper);
-  return ancestors;
+  return ancestors + 1;
 }

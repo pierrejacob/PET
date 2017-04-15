@@ -18,7 +18,7 @@ for (i in 1:p){
   }
 }
 covariance <- covreg::rwish(S, 5)
-
+# sample from multivariate Normal
 x <- rmvnorm(N, mean, covariance)
 summary(as.numeric(abs((cov(x) - covariance) / covariance)))
 

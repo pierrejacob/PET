@@ -6,3 +6,27 @@
 \usage{
 rmvnorm(n, mean, covariance)
 }
+\arguments{
+\item{n}{is the number of desired samples}
+
+\item{mean}{is the mean vector}
+
+\item{covariance}{is the covariance matrix}
+}
+\value{
+a n x d matrix where d is both the length of \code{mean} and the dimension of \code{covariance}. Each row contains a draw from
+the desired multivariate Normal.
+}
+\description{
+Function to generate draws from a multivariate Normal distribution.
+}
+\details{
+This function does not check anything (i.e. that the given
+covariance is PSD). Thus it is faster than functions in standard packages, but more risky.
+}
+\examples{
+rmvnorm(10, rep(0, 5), diag(1, 5, 5))
+}
+\seealso{
+\code{\link{rmvnorm_cholesky}}, \code{\link{dmvnorm}}, \code{\link{dmvnorm_cholesky_inverse}}
+}

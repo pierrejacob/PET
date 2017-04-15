@@ -22,7 +22,7 @@ ancestors <- multinomial_resampling_R(Nprime, normalized_weights)
 summary(abs((tabulate(ancestors) / Nprime - normalized_weights)/normalized_weights))
 
 ancestors <- multinomial_resampling(Nprime, normalized_weights)
-summary(abs((tabulate(ancestors+1) / Nprime - normalized_weights)/normalized_weights))
+summary(abs((tabulate(ancestors) / Nprime - normalized_weights)/normalized_weights))
 
 ancestors <- systematic_resampling(Nprime, normalized_weights)
 summary(abs((tabulate(ancestors) / Nprime - normalized_weights)/normalized_weights))
