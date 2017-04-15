@@ -17,3 +17,11 @@ dmvnorm_cholesky_inverse_ <- function(x, mean, cholesky_inverse) {
     .Call('PET_dmvnorm_cholesky_inverse_', PACKAGE = 'PET', x, mean, cholesky_inverse)
 }
 
+systematic_resampling_ <- function(nsamples, weights) {
+    .Call('PET_systematic_resampling_', PACKAGE = 'PET', nsamples, weights)
+}
+
+multinomial_resampling_ <- function(nsamples, weights) {
+    .Call('PET_multinomial_resampling_', PACKAGE = 'PET', nsamples, weights)
+}
+

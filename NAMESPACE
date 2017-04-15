@@ -2,7 +2,11 @@
 
 export(dmvnorm)
 export(dmvnorm_cholesky_inverse)
+export(multinomial_resampling)
+export(multinomial_resampling_R)
+export(normalize_weight)
 export(rmvnorm)
 export(rmvnorm_cholesky)
+export(systematic_resampling)
 importFrom(Rcpp,sourceCpp)
 useDynLib(PET)

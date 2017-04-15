@@ -58,3 +58,27 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// systematic_resampling_
+IntegerVector systematic_resampling_(int nsamples, const NumericVector& weights);
+RcppExport SEXP PET_systematic_resampling_(SEXP nsamplesSEXP, SEXP weightsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type nsamples(nsamplesSEXP);
+    Rcpp::traits::input_parameter< const NumericVector& >::type weights(weightsSEXP);
+    rcpp_result_gen = Rcpp::wrap(systematic_resampling_(nsamples, weights));
+    return rcpp_result_gen;
+END_RCPP
+}
+// multinomial_resampling_
+IntegerVector multinomial_resampling_(int nsamples, const NumericVector& weights);
+RcppExport SEXP PET_multinomial_resampling_(SEXP nsamplesSEXP, SEXP weightsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type nsamples(nsamplesSEXP);
+    Rcpp::traits::input_parameter< const NumericVector& >::type weights(weightsSEXP);
+    rcpp_result_gen = Rcpp::wrap(multinomial_resampling_(nsamples, weights));
+    return rcpp_result_gen;
+END_RCPP
+}
