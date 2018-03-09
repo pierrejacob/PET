@@ -8,7 +8,7 @@ using namespace Rcpp;
 
 // rmvnorm_
 NumericMatrix rmvnorm_(int nsamples, const NumericVector& mean, const NumericMatrix& covariance);
-RcppExport SEXP PET_rmvnorm_(SEXP nsamplesSEXP, SEXP meanSEXP, SEXP covarianceSEXP) {
+RcppExport SEXP _PET_rmvnorm_(SEXP nsamplesSEXP, SEXP meanSEXP, SEXP covarianceSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -21,7 +21,7 @@ END_RCPP
 }
 // rmvnorm_cholesky_
 NumericMatrix rmvnorm_cholesky_(int nsamples, const NumericVector& mean, const Eigen::MatrixXd& cholesky);
-RcppExport SEXP PET_rmvnorm_cholesky_(SEXP nsamplesSEXP, SEXP meanSEXP, SEXP choleskySEXP) {
+RcppExport SEXP _PET_rmvnorm_cholesky_(SEXP nsamplesSEXP, SEXP meanSEXP, SEXP choleskySEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -34,7 +34,7 @@ END_RCPP
 }
 // dmvnorm_
 NumericVector dmvnorm_(const NumericMatrix& x, const NumericVector& mean, const NumericMatrix& covariance);
-RcppExport SEXP PET_dmvnorm_(SEXP xSEXP, SEXP meanSEXP, SEXP covarianceSEXP) {
+RcppExport SEXP _PET_dmvnorm_(SEXP xSEXP, SEXP meanSEXP, SEXP covarianceSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -47,7 +47,7 @@ END_RCPP
 }
 // dmvnorm_cholesky_inverse_
 NumericVector dmvnorm_cholesky_inverse_(const NumericMatrix& x, const NumericVector& mean, const Eigen::MatrixXd& cholesky_inverse);
-RcppExport SEXP PET_dmvnorm_cholesky_inverse_(SEXP xSEXP, SEXP meanSEXP, SEXP cholesky_inverseSEXP) {
+RcppExport SEXP _PET_dmvnorm_cholesky_inverse_(SEXP xSEXP, SEXP meanSEXP, SEXP cholesky_inverseSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -60,7 +60,7 @@ END_RCPP
 }
 // systematic_resampling_
 IntegerVector systematic_resampling_(int nsamples, const NumericVector& weights);
-RcppExport SEXP PET_systematic_resampling_(SEXP nsamplesSEXP, SEXP weightsSEXP) {
+RcppExport SEXP _PET_systematic_resampling_(SEXP nsamplesSEXP, SEXP weightsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -72,7 +72,7 @@ END_RCPP
 }
 // multinomial_resampling_
 IntegerVector multinomial_resampling_(int nsamples, const NumericVector& weights);
-RcppExport SEXP PET_multinomial_resampling_(SEXP nsamplesSEXP, SEXP weightsSEXP) {
+RcppExport SEXP _PET_multinomial_resampling_(SEXP nsamplesSEXP, SEXP weightsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -81,4 +81,22 @@ BEGIN_RCPP
     rcpp_result_gen = Rcpp::wrap(multinomial_resampling_(nsamples, weights));
     return rcpp_result_gen;
 END_RCPP
+}
+
+RcppExport SEXP _rcpp_module_boot_module_tree();
+
+static const R_CallMethodDef CallEntries[] = {
+    {"_PET_rmvnorm_", (DL_FUNC) &_PET_rmvnorm_, 3},
+    {"_PET_rmvnorm_cholesky_", (DL_FUNC) &_PET_rmvnorm_cholesky_, 3},
+    {"_PET_dmvnorm_", (DL_FUNC) &_PET_dmvnorm_, 3},
+    {"_PET_dmvnorm_cholesky_inverse_", (DL_FUNC) &_PET_dmvnorm_cholesky_inverse_, 3},
+    {"_PET_systematic_resampling_", (DL_FUNC) &_PET_systematic_resampling_, 2},
+    {"_PET_multinomial_resampling_", (DL_FUNC) &_PET_multinomial_resampling_, 2},
+    {"_rcpp_module_boot_module_tree", (DL_FUNC) &_rcpp_module_boot_module_tree, 0},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_PET(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
 }

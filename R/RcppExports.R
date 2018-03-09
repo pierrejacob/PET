@@ -2,26 +2,26 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 rmvnorm_ <- function(nsamples, mean, covariance) {
-    .Call('PET_rmvnorm_', PACKAGE = 'PET', nsamples, mean, covariance)
+    .Call('_PET_rmvnorm_', PACKAGE = 'PET', nsamples, mean, covariance)
 }
 
 rmvnorm_cholesky_ <- function(nsamples, mean, cholesky) {
-    .Call('PET_rmvnorm_cholesky_', PACKAGE = 'PET', nsamples, mean, cholesky)
+    .Call('_PET_rmvnorm_cholesky_', PACKAGE = 'PET', nsamples, mean, cholesky)
 }
 
 dmvnorm_ <- function(x, mean, covariance) {
-    .Call('PET_dmvnorm_', PACKAGE = 'PET', x, mean, covariance)
+    .Call('_PET_dmvnorm_', PACKAGE = 'PET', x, mean, covariance)
 }
 
 dmvnorm_cholesky_inverse_ <- function(x, mean, cholesky_inverse) {
-    .Call('PET_dmvnorm_cholesky_inverse_', PACKAGE = 'PET', x, mean, cholesky_inverse)
+    .Call('_PET_dmvnorm_cholesky_inverse_', PACKAGE = 'PET', x, mean, cholesky_inverse)
 }
 
 systematic_resampling_ <- function(nsamples, weights) {
-    .Call('PET_systematic_resampling_', PACKAGE = 'PET', nsamples, weights)
+    .Call('_PET_systematic_resampling_', PACKAGE = 'PET', nsamples, weights)
 }
 
 multinomial_resampling_ <- function(nsamples, weights) {
-    .Call('PET_multinomial_resampling_', PACKAGE = 'PET', nsamples, weights)
+    .Call('_PET_multinomial_resampling_', PACKAGE = 'PET', nsamples, weights)
 }
 
