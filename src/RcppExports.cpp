@@ -83,13 +83,14 @@ BEGIN_RCPP
 END_RCPP
 }
 // SSP_resampling_
-IntegerVector SSP_resampling_(const NumericVector& weights);
-RcppExport SEXP _PET_SSP_resampling_(SEXP weightsSEXP) {
+IntegerVector SSP_resampling_(int nsamples, const NumericVector& weights);
+RcppExport SEXP _PET_SSP_resampling_(SEXP nsamplesSEXP, SEXP weightsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type nsamples(nsamplesSEXP);
     Rcpp::traits::input_parameter< const NumericVector& >::type weights(weightsSEXP);
-    rcpp_result_gen = Rcpp::wrap(SSP_resampling_(weights));
+    rcpp_result_gen = Rcpp::wrap(SSP_resampling_(nsamples, weights));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -103,7 +104,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_PET_dmvnorm_cholesky_inverse_", (DL_FUNC) &_PET_dmvnorm_cholesky_inverse_, 3},
     {"_PET_systematic_resampling_", (DL_FUNC) &_PET_systematic_resampling_, 2},
     {"_PET_multinomial_resampling_", (DL_FUNC) &_PET_multinomial_resampling_, 2},
-    {"_PET_SSP_resampling_", (DL_FUNC) &_PET_SSP_resampling_, 1},
+    {"_PET_SSP_resampling_", (DL_FUNC) &_PET_SSP_resampling_, 2},
     {"_rcpp_module_boot_module_tree", (DL_FUNC) &_rcpp_module_boot_module_tree, 0},
     {NULL, NULL, 0}
 };

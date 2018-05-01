@@ -3,7 +3,7 @@ rm(list = ls())
 # load package
 library(PET)
 # fix the random seed
-set.seed(17)
+set.seed(19)
 
 N <- 1000
 logweights <- rnorm(N)
@@ -27,6 +27,6 @@ summary(abs((tabulate(ancestors) / Nprime - normalized_weights)/normalized_weigh
 ancestors <- systematic_resampling(Nprime, normalized_weights)
 summary(abs((tabulate(ancestors) / Nprime - normalized_weights)/normalized_weights))
 
-ancestors <- replicate(Nprime,tabulate(ssp_resampling(normalized_weights)))
-summary(abs((rowMeans(ancestors/N)-normalized_weights)/normalized_weights))
+ancestors <- ssp_resampling(Nprime, normalized_weights)
+summary(abs((tabulate(ancestors) / Nprime - normalized_weights)/normalized_weights))
 

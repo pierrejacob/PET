@@ -4,7 +4,7 @@
 \alias{ssp_resampling}
 \title{SSP resampling}
 \usage{
-ssp_resampling(normalized_weights)
+ssp_resampling(nsamples, normalized_weights)
 }
 \arguments{
 \item{normalized_weights}{is a vector of probabilities (non-negative values summing to one)}
@@ -13,11 +13,11 @@ ssp_resampling(normalized_weights)
 A vector of ancestors of the same length as \code{normalized_weights}
 }
 \description{
-Srinivasan Sampling Process (SSP) resampling returns a vector of N ancestors
-(integers from 1 to N) based on a given vector of N normalized weights.
-This function internally uses a vector of N independent Unif(0,1).
+Srinivasan Sampling Process (SSP) resampling returns a vector of \code{nsamples} ancestors
+(integers from 1 to \code{N}) based on a given vector of \code{N} normalized weights.
+This function internally uses a vector of \code{N} independent Unif(0,1).
 
-The SSP resampling is unbiased: if \code{A = ssp_resampling(W)} and \code{N = length(W)}, then
+The SSP resampling is unbiased: if \code{A = ssp_resampling(N,W)}, then
 for every \code{i = 1,...,N}, the expectation of \code{sum(A==i)} is equal to \code{N*W[i]}.
 
 The SSP resampling has the additional property that \code{sum(A==i)} is exactly equal to either

@@ -60,11 +60,11 @@ systematic_resampling <- function(nsamples, normalized_weights){
 
 #'@rdname ssp_resampling
 #'@title SSP resampling
-#'@description  Srinivasan Sampling Process (SSP) resampling returns a vector of N ancestors
-#'(integers from 1 to N) based on a given vector of N normalized weights.
-#'This function internally uses a vector of N independent Unif(0,1).
+#'@description  Srinivasan Sampling Process (SSP) resampling returns a vector of \code{nsamples} ancestors
+#'(integers from 1 to \code{N}) based on a given vector of \code{N} normalized weights.
+#'This function internally uses a vector of \code{N} independent Unif(0,1).
 #'
-#'The SSP resampling is unbiased: if \code{A = ssp_resampling(W)} and \code{N = length(W)}, then
+#'The SSP resampling is unbiased: if \code{A = ssp_resampling(N,W)}, then
 #'for every \code{i = 1,...,N}, the expectation of \code{sum(A==i)} is equal to \code{N*W[i]}.
 #'
 #'The SSP resampling has the additional property that \code{sum(A==i)} is exactly equal to either
@@ -80,6 +80,6 @@ systematic_resampling <- function(nsamples, normalized_weights){
 #' normalized_weights <- normalize_weight_results$nw
 #' ssp_resampling(normalized_weights)
 #'@export
-ssp_resampling <- function(normalized_weights){
-  return(SSP_resampling_(normalized_weights))
+ssp_resampling <- function(nsamples, normalized_weights){
+  return(SSP_resampling_(nsamples, normalized_weights))
 }
