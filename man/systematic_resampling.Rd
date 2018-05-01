@@ -15,7 +15,7 @@ systematic_resampling(nsamples, normalized_weights)
 a vector of \code{nsamples} integers between 1 and the size of \code{normalized_weights}.
 }
 \description{
-Systematic resampling returns a vector of ancestors based on the give
+Systematic resampling returns a vector of ancestors based on the given
 weights, using only one uniform.
 }
 \details{

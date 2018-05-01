@@ -39,7 +39,7 @@ multinomial_resampling <- function(nsamples, normalized_weights){
 
 #'@rdname systematic_resampling
 #'@title Systematic resampling
-#'@description Systematic resampling returns a vector of ancestors based on the give
+#'@description Systematic resampling returns a vector of ancestors based on the given
 #'weights, using only one uniform.
 #'@details See Comparison of Resampling Schemes for Particle Filtering, Douc, Cappe and Moulines,
 #' https://arxiv.org/pdf/cs/0507025.pdf
@@ -55,4 +55,31 @@ multinomial_resampling <- function(nsamples, normalized_weights){
 #'@export
 systematic_resampling <- function(nsamples, normalized_weights){
   return(systematic_resampling_(nsamples, normalized_weights))
+}
+
+
+#'@rdname ssp_resampling
+#'@title SSP resampling
+#'@description  Srinivasan Sampling Process (SSP) resampling returns a vector of N ancestors
+#'(integers from 1 to N) based on a given vector of N normalized weights.
+#'This function internally uses a vector of N independent Unif(0,1).
+#'
+#'The SSP resampling is unbiased: if \code{A = ssp_resampling(W)} and \code{N = length(W)}, then
+#'for every \code{i = 1,...,N}, the expectation of \code{sum(A==i)} is equal to \code{N*W[i]}.
+#'
+#'The SSP resampling has the additional property that \code{sum(A==i)} is exactly equal to either
+#' \code{floor(N*W[i])} or \code{(1+floor(N*W[i]))}.
+#'@details See Negative association, ordering and convergence of resampling methods, by Gerber,
+#'Chopin, and Whiteley (2017) [https://arxiv.org/abs/1707.01845]
+#'@param normalized_weights is a vector of probabilities (non-negative values summing to one)
+#'@return A vector of ancestors of the same length as \code{normalized_weights}
+#'@examples
+#' N <- 1000
+#' logweights <- rnorm(N)
+#' normalize_weight_results <- normalize_weight(logweights)
+#' normalized_weights <- normalize_weight_results$nw
+#' ssp_resampling(normalized_weights)
+#'@export
+ssp_resampling <- function(normalized_weights){
+  return(SSP_resampling_(normalized_weights))
 }

@@ -27,4 +27,6 @@ summary(abs((tabulate(ancestors) / Nprime - normalized_weights)/normalized_weigh
 ancestors <- systematic_resampling(Nprime, normalized_weights)
 summary(abs((tabulate(ancestors) / Nprime - normalized_weights)/normalized_weights))
 
+ancestors <- replicate(Nprime,tabulate(ssp_resampling(normalized_weights)))
+summary(abs((rowMeans(ancestors/N)-normalized_weights)/normalized_weights))
 

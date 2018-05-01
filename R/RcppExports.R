@@ -25,3 +25,7 @@ multinomial_resampling_ <- function(nsamples, weights) {
     .Call('_PET_multinomial_resampling_', PACKAGE = 'PET', nsamples, weights)
 }
 
+SSP_resampling_ <- function(weights) {
+    .Call('_PET_SSP_resampling_', PACKAGE = 'PET', weights)
+}
+
