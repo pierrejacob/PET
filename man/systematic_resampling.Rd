@@ -19,8 +19,8 @@ Systematic resampling returns a vector of ancestors based on the given
 weights, using only one uniform.
 }
 \details{
-See Comparison of Resampling Schemes for Particle Filtering, Douc, Cappe and Moulines,
-https://arxiv.org/pdf/cs/0507025.pdf
+See Comparison of Resampling Schemes for Particle Filtering, Douc, Cappe and Moulines
+[\url{https://arxiv.org/pdf/cs/0507025.pdf}]
 }
 \examples{
 N <- 1000

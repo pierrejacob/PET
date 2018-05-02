@@ -25,7 +25,7 @@ The SSP resampling has the additional property that \code{sum(A==i)} is exactly 
 }
 \details{
 See Negative association, ordering and convergence of resampling methods, by Gerber,
-Chopin, and Whiteley (2017) [https://arxiv.org/abs/1707.01845]
+Chopin, and Whiteley (2017) [\url{https://arxiv.org/abs/1707.01845}]
 }
 \examples{
 N <- 1000
